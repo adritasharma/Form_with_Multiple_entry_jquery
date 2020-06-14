@@ -25,6 +25,10 @@ function handleAccordion(changeIcon, iconClass1, iconClass2) {
     }
 }
 
+function cloneArrayItem(containerIdName, classToClone){
+    $(`.${classToClone}:last`).clone().find("input").val("").end().appendTo(`#${containerIdName}`)
+}
+
 /**
    * Creates Navbar HTML based on json Data
    *
@@ -138,68 +142,3 @@ function formatFormArrayData(repeatContainerClass) {
 }
 
 
-/**
-   * Makes AJAX request to get data from API. For demo, I have returned raw json data,
-   * ideally it should be returned in callBack Function
-   *
-   * @param {string} url
-   *   endpoint to fetch data.
-   * @param {string} successCallback
-   *   callBack function to be returned on success
-   *
-*/
-function GetAjax(url, successCallback) {
-    // $.ajax({
-    //     type: 'GET',
-    //     dataType: 'json',
-    //     async: false,
-    //     success: successCallback,
-    //     error: function (xhr, textStatus, errorThrown) {
-    //         console.log('error');
-    //     }
-    // });
-    var data = [
-        {
-            "ContractNo": "123-1",
-            "ProductType": "Equipment Lease",
-            "CommencementDate": "11/18/2020",
-            "Term": 8,
-            "MaturityDate": "03/14/2021",
-            "Amount": "175582.15 USD",
-            "Status": true,
-            "PaymentFrequency": "Monthly",
-            "PrincipalBalance": "121,511.48 USD",
-            "InterestBalance": "151,910.18 USD",
-            "TotalBalance": "106,910.18 USD",
-            "PaymentsRemaining": "12"
-        }, {
-            "ContractNo": "123-2",
-            "ProductType": "Equipment Loan",
-            "CommencementDate": "16/09/2021",
-            "Term": 7,
-            "MaturityDate": "03/11/2021",
-            "Amount": "123582.15 USD",
-            "Status": true,
-            "PaymentFrequency": "Monthly",
-            "PrincipalBalance": "121,511.48 USD",
-            "InterestBalance": "151,910.18 USD",
-            "TotalBalance": "106,910.18 USD",
-            "PaymentsRemaining": "12"
-        }, {
-            "ContractNo": "123-3",
-            "ProductType": "Equipment Lease",
-            "CommencementDate": "12/18/2020",
-            "Term": 7,
-            "MaturityDate": "03/14/2021",
-            "Amount": "175582.15 USD",
-            "Status": false,
-            "PaymentFrequency": "Monthly",
-            "PrincipalBalance": "95,511.48 USD",
-            "InterestBalance": "151,910.18 USD",
-            "TotalBalance": "106,910.18 USD",
-            "PaymentsRemaining": "13"
-        }]
-
-    return data;
-
-}

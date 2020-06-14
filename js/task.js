@@ -7,13 +7,13 @@ $(document).ready(function () {
 
     $("form").submit(function (e) {
         e.preventDefault();
-        var values = formatFormData("form",true,"skill-item","skills");
+        var values = formatFormData("form", true, "skill-item", "skills");
         console.log(values)
 
     });
 
     $('#addSkillBtn').click(function () {
-        $('.skill-item:last').clone().find("input").val("").end().appendTo('#skillsContainer')
+        cloneArrayItem('skillsContainer', 'skill-item');
     });
 
 
