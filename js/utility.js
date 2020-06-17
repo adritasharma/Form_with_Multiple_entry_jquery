@@ -27,7 +27,9 @@ function formatFormArrayData(repeatContainerClass) {
 
     $(`.${repeatContainerClass}`).each(function (e) {
         let item = {}
-        $(this).find("input").each(function (e) {
+
+        $(this).find(':input').each(function (e) {
+            console.log(this.type)
             if (this.type != "button") {
                 let name = this.name.replace("[]", "");;
                 item[name] = this.value
@@ -40,7 +42,7 @@ function formatFormArrayData(repeatContainerClass) {
 
 }
 
-function handleFormArrayDelete(that,repeatClassName, deleteButtonClassName) {
+function handleFormArrayDelete(that, repeatClassName, deleteButtonClassName) {
     var itemCount = $(`.${repeatClassName}`).length;
     console.log(itemCount);
     if (itemCount > 1) {
