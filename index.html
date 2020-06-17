@@ -9,47 +9,48 @@
 
 
 <body>
-    <div class="navbar"> </div>
-    <div class="row">
-        <form id="candidateForm" class="col-10 mx-auto">
-            <h3>Candidate Information </h3>
-            <div class="form-group">
-                <label for="name">Full Name:</label>
-                <input type="text" name="name" class="form-control" placeholder="Enter name" id="name">
+    <form id="candidateForm" class="col-10 mx-auto">
+        <h3>Candidate Information </h3>
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" name="name" class="form-control" placeholder="Enter name" id="name">
+        </div>
+        <div class="form-group">
+            <label for="experience">Experience:</label>
+            <input type="number" name="experience" class="form-control" placeholder="Enter experience in years"
+                id="experience">
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h5>Skills: </h5>
             </div>
-            <div class="form-group">
-                <label for="experience">Experience:</label>
-                <input type="number" name="experience" class="form-control" placeholder="Enter experience in years"
-                    id="experience">
+            <div class="col-6">
+                <button type="button" id="addSkillBtn" class="btn btn-primary float-right">Add Another Skill</button>
             </div>
-            <div class="row">
-                <div class="col-6">
-                    <h5>Skills: </h5>
-                </div>
-                <div class="col-6">
-                    <button type="button" id="addSkillBtn" class="btn btn-primary float-right">Add Another Skill</button>
-                </div>
-            </div>
-            <div id="skillsContainer">
-                <div class="row skill-item">
-                    <div class="col-5">
-                        <div class="form-group">
-                            <label for="technology">Technology:</label>
-                            <input type="text" name="technology[]" class="form-control" placeholder="Technology">
-                        </div>
-                    </div>
-                    <div class="col-5">
-                        <div class="form-group">
-                            <label for="Years">Years:</label>
-                            <input type="text" name="years[]" class="form-control" placeholder="Years">
-                        </div>
-                    </div>
-                    <div class="col-2 my-auto">
-                        <button type="button" class="btn btn-danger remove-skill">Remove</button>
+        </div>
+        <div id="skillsContainer">
+            <div class="row skill-item">
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="technology">Technology:</label>
+                        <input type="text" name="technology[]" class="form-control" placeholder="Technology">
                     </div>
                 </div>
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="Years">Years:</label>
+                        <input type="text" name="years[]" class="form-control" placeholder="Years">
+                    </div>
+                </div>
+                <div class="col-2 my-auto">
+                    <button type="button" class="btn btn-danger remove-skill" disabled="true">X</button>
+                </div>
             </div>
-            <button type="submit" id="candidateFormSubmit" class="btn btn-success float-right">Submit</button>
-        </form>
-    </div>
+        </div>
+        <button type="submit" id="candidateFormSubmit" class="btn btn-success float-right">Submit</button>
+        <div class="code">
+            <pre><code id="result"><code></pre>
+        </div>
+    </form>
+
 </body>
