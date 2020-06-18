@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    handleFormValidation('candidateForm','candidateFormSubmit')
+
     $('#addSkillBtn').click(function () {
         cloneArrayItem('skillsContainer', 'skill-item');
         $('.remove-skill').attr('disabled', false);

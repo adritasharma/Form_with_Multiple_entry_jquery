@@ -53,3 +53,16 @@ function handleFormArrayDelete(that, repeatClassName, deleteButtonClassName) {
     }
 }
 
+
+function handleFormValidation(formId, submitBtnId) {
+    $(':input').on('blur keyup', function () {
+        var isValidForm = document.getElementById(formId).checkValidity();
+        console.log(isValidForm)
+
+        if (isValidForm) {
+            $(`#${submitBtnId}`).prop('disabled', false);
+        } else {
+            $(`#${submitBtnId}`).prop('disabled', 'disabled');
+        }
+    });
+}
