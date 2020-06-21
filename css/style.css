@@ -12,3 +12,7 @@ body {
 .remove-skill {
     color: #d73546;
 }
+
+.error{
+    color: red;
+}

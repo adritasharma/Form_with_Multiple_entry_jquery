@@ -1,4 +1,6 @@
 <script src="js/jQuery.min"></script>
+<script src="js/jquery.validate.min.js"></script>
+
 <script src="js/utility.js"></script>
 <script src="js/task.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -6,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 <body>
     <form id="candidateForm" class="col-10 mx-auto">
@@ -40,7 +42,7 @@
                     <div class="form-group">
                         <label for="Expertise">Expertise:</label>
                         <select name="expertise[]" class="form-control">
-                            <option value="" selected disabled>-- Select--</option>
+                            <option value="" selected >-- Select--</option>
                             <option value="Beginner">Beginner</option>
                             <option value="Intermediate">Intermediate</option>
                             <option value="Expert">Expert</option>
@@ -52,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <button type="submit" id="candidateFormSubmit" class="btn btn-success float-right" disabled>Submit</button>
+        <button type="submit" id="candidateFormSubmit" class="btn btn-success float-right">Submit</button>
         <div class="code">
             <pre><code id="result"><code></pre>
         </div>

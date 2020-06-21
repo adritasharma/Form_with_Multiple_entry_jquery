@@ -42,6 +42,7 @@ function formatFormArrayData(repeatContainerClass) {
 
 }
 
+
 function handleFormArrayDelete(that, repeatClassName, deleteButtonClassName) {
     var itemCount = $(`.${repeatClassName}`).length;
     console.log(itemCount);
@@ -54,15 +55,46 @@ function handleFormArrayDelete(that, repeatClassName, deleteButtonClassName) {
 }
 
 
-function handleFormValidation(formId, submitBtnId) {
-    $(':input').on('blur keyup', function () {
-        var isValidForm = document.getElementById(formId).checkValidity();
-        console.log(isValidForm)
+function handleFormValidation(rules, messages) {
+    // $(':input').on('blur keyup', function () {
+    //     let form = document.getElementById(formId);
+    //     var isValidForm = form.checkValidity();
+    //     if (isValidForm) {
+    //         $(`#${submitBtnId}`).prop('disabled', false);
+    //     } else {
+    //         // console.log(form.reportValidity())
+    //         $(`#${submitBtnId}`).prop('disabled', 'disabled');
+    //     }
 
-        if (isValidForm) {
-            $(`#${submitBtnId}`).prop('disabled', false);
-        } else {
-            $(`#${submitBtnId}`).prop('disabled', 'disabled');
-        }
+
+
+    // });
+
+
+    $('#candidateForm').validate({
+        onfocusout: function (element) { $(element).valid() },
+        onkeyup: false,
+        onclick: function (element) { $(element).valid() },
+
+        rules: rules,
+        messages: messages,
+        errorPlacement: function (error, element) {
+            error.insertAfter(element);
+        },
+        invalidHandler: function (event, validator) {
+            var errors = validator.numberOfInvalids();
+            if (errors) {
+                alert('Not accepted');
+            }
+        },
+        submitHandler: function (form, event) {
+            event.preventDefault();
+            alert('Congratulations')
+        },
     });
+
+    $.validator.addMethod('two-words', function (value) {
+        return /^[A-Za-z]+\s[A-Za-z]+$/.test(value);
+    }, 'Field must have atleast 2 words');
+
 }
